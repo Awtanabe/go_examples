@@ -76,3 +76,15 @@ BenchmarkRepeat-10      14355256                83.69 ns/op
   - errors.New
 - エラーのテストが足りていないかチェック
   - https://qiita.com/Sekky0905/items/a47e83e7f97d5311e72b
+
+### map
+
+- 参照型
+  - https://andmorefine.gitbook.io/learn-go-with-tests/go-fundamentals/maps#can-zhao-xing
+    - ポインタを渡さないでも変更できる
+    - 落とし穴はnilであること
+      - 空のマップ変数を初期化 は `var m map[string]string
+` よくない
+      - var dictionary = map[string]string{}, var dictionary = make(map[string]string)
+- mapでcrud実装
+- エラーラッパーをかく
