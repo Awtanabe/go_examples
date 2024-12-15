@@ -68,3 +68,11 @@ BenchmarkRepeat-10      14355256                83.69 ns/op
 
 - テーブル駆動テスト
   - TestAreaで
+
+### pointer
+
+- レシーバポインターによる挙動の確認
+- エラー
+  - errors.New
+- エラーのテストが足りていないかチェック
+  - https://qiita.com/Sekky0905/items/a47e83e7f97d5311e72b
