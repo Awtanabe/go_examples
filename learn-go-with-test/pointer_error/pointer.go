@@ -1,4 +1,4 @@
-package pointer
+package main
 
 import (
 	"errors"
@@ -11,7 +11,6 @@ type Wallet struct {
 	balance Bitcoin
 }
 
-// このWalletが*じゃないと更新されないから上手く行かない
 func (w *Wallet) Deposit(amount Bitcoin) {
 	w.balance += amount
 }
@@ -20,18 +19,16 @@ func (w Wallet) Balance() Bitcoin {
 	return w.balance
 }
 
-func (b Bitcoin) String() string {
-	return fmt.Sprintf("%d BTC", b)
-}
+var ErrInsufficientFunds = errors.New("didn't get an error but wanted one")
 
 func (w *Wallet) Withdraw(amount Bitcoin) error {
-
-	// 引き出す額が、残高より多い場合はエラーを返す
 	if amount > w.balance {
-		  // ここは学習項目
-			return errors.New("cannot withdraw, insufficient funds")
+		return ErrInsufficientFunds
 	}
-
 	w.balance -= amount
 	return nil
+}
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
 }
