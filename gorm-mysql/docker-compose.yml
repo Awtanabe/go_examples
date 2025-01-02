@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test-db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      TZ: Asia/Tokyo
+    volumes:
+      - db-store:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - 3306:3306
+volumes:
+  db-store:
