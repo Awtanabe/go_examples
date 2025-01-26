@@ -1,0 +1,12 @@
+services:
+  aws:
+    image: localstack/localstack
+    ports:
+      - 4566:4566
+      - 4510-4559:4510-4559
+    tty: true
+    environment:
+      - DEBUG=1
+      - SERVICES=ses
+      - DEFAULT_REGION=ap-northeast-1
+      - EMAIL_ADDRESS_VERIFICATION=false
